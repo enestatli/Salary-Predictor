@@ -2,7 +2,7 @@ import os
 import numpy as np
 import flask
 import pickle
-from flask import Flask, render, render_template, request
+from flask import Flask, render_template, request
 
 app=Flask(__name__)
 
@@ -25,10 +25,10 @@ def result():
 		to_predict_list = list(map(int, to_predict_list))
 		result = ValuePredictor(to_predict_list)
 		if int(result) == 1:
-			predction = 'Income more than 50K'
+			prediction = 'Income more than 50K'
 		else:
-			predict = 'Income less than 50K'
-		return render_template("result.html", predction=predction)
+			prediction = 'Income less than 50K'
+		return render_template("result.html", prediction=prediction)
 
 if __name__ == '__main__':
 	app.run(debug=True)
